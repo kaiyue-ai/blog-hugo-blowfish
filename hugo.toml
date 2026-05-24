@@ -1,0 +1,232 @@
+baseURL = "https://blog-hugo-blowfish.vercel.app/"
+title = "个人博客"
+theme = "blowfish"
+defaultContentLanguage = "zh-cn"
+locale = "zh-cn"
+hasCJKLanguage = true
+enableRobotsTXT = true
+enableEmoji = true
+summaryLength = 120
+
+[pagination]
+  pagerSize = 9
+
+[imaging]
+  anchor = "Center"
+  quality = 85
+  resampleFilter = "Lanczos"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  author = "authors"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[related]
+  threshold = 0
+  toLower = false
+
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+
+  [[related.indices]]
+    name = "categories"
+    weight = 100
+
+  [[related.indices]]
+    name = "date"
+    weight = 10
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      wrapStandAloneImageWithinParagraph = false
+      [markup.goldmark.parser.attribute]
+        block = true
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)']]
+  [markup.highlight]
+    noClasses = false
+    lineNos = true
+    lineNumbersInTable = false
+    tabWidth = 2
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+
+[params]
+  description = "记录日常与技术分享"
+  keywords = ["个人博客", "技术分享", "日常记录", "Hugo", "Blowfish"]
+  colorScheme = "one-light"
+  defaultAppearance = "light"
+  autoSwitchAppearance = true
+  enableSearch = true
+  enableCodeCopy = true
+  enableStructuredBreadcrumbs = true
+  enableA11y = true
+  replyByEmail = false
+  mainSections = ["posts"]
+  disableImageOptimization = false
+  disableImageOptimizationMD = false
+  hotlinkFeatureImage = false
+  thumbnailAspectRatio = "1.5"
+  highlightCurrentMenuArea = true
+  smartTOC = true
+  smartTOCHideUnfocusedChildren = false
+  fingerprintAlgorithm = "sha512"
+
+  [params.header]
+    layout = "fixed-fill-blur"
+
+  [params.footer]
+    showMenu = true
+    showCopyright = true
+    showThemeAttribution = true
+    showAppearanceSwitcher = true
+    showScrollToTop = true
+
+  [params.homepage]
+    layout = "custom"
+    showRecent = true
+    showRecentItems = 6
+    showMoreLink = true
+    showMoreLinkDest = "/posts/"
+    cardView = true
+    cardViewScreenWidth = false
+
+  [params.article]
+    showDate = true
+    showDateOnlyInArticle = false
+    showDateUpdated = true
+    showAuthor = true
+    showAuthorBottom = true
+    showHero = false
+    showBreadcrumbs = true
+    showDraftLabel = true
+    showEdit = false
+    editAppendPath = false
+    showHeadingAnchors = true
+    showPagination = true
+    invertPagination = false
+    showReadingTime = true
+    showTableOfContents = true
+    showRelatedContent = true
+    relatedContentLimit = 4
+    showTaxonomies = true
+    showCategories = true
+    showTags = true
+    showAuthorsBadges = false
+    showWordCount = true
+    sharingLinks = ["email"]
+    showZenMode = true
+    showComments = true
+
+  [params.list]
+    showSummary = true
+    showCards = true
+    cardView = true
+    groupByYear = false
+    showTableOfContents = false
+    constrainItemsWidth = false
+
+  [params.taxonomy]
+    showTermCount = true
+    cardView = false
+
+  [params.term]
+    groupByYear = true
+    cardView = true
+
+  [params.giscus]
+    repo = ""
+    repoId = ""
+    category = "Announcements"
+    categoryId = ""
+    mapping = "pathname"
+    strict = "0"
+    reactionsEnabled = "1"
+    emitMetadata = "0"
+    inputPosition = "bottom"
+    theme = "preferred_color_scheme"
+    lang = "zh-CN"
+    loading = "lazy"
+
+[languages]
+  [languages.zh-cn]
+    locale = "zh-cn"
+    label = "简体中文"
+    weight = 1
+    title = "个人博客"
+
+    [languages.zh-cn.params]
+      displayName = "简体中文"
+      isoCode = "zh-cn"
+      rtl = false
+      dateFormat = "2006-01-02"
+      logo = "img/avatar.svg"
+      description = "记录日常与技术分享"
+
+    [languages.zh-cn.params.author]
+      name = "博主"
+      image = "img/avatar.svg"
+      headline = "记录日常与技术分享"
+      bio = "这里是个人简介占位，可以写正在关注的技术方向、日常兴趣和联系方式。"
+      links = [
+        { github = "https://github.com/" },
+        { x-twitter = "https://x.com/" },
+        { email = "mailto:hello@example.com" }
+      ]
+
+[[menus.main]]
+  name = "首页"
+  url = "/"
+  weight = 10
+
+[[menus.main]]
+  name = "文章分类"
+  url = "/categories/"
+  weight = 20
+
+[[menus.main]]
+  name = "标签"
+  url = "/tags/"
+  weight = 30
+
+[[menus.main]]
+  name = "归档"
+  url = "/archives/"
+  weight = 40
+
+[[menus.main]]
+  name = "关于我"
+  url = "/about/"
+  weight = 50
+
+[[menus.footer]]
+  name = "文章分类"
+  url = "/categories/"
+  weight = 10
+
+[[menus.footer]]
+  name = "标签"
+  url = "/tags/"
+  weight = 20
+
+[[menus.footer]]
+  name = "归档"
+  url = "/archives/"
+  weight = 30

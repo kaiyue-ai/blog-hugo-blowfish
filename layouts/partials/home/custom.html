@@ -1,0 +1,37 @@
+{{ $author := site.Params.Author }}
+<div class="home-shell">
+  <main class="home-main">
+    <section class="home-intro">
+      <p class="home-kicker">{{ site.Params.description }}</p>
+      <h1>{{ site.Title }}</h1>
+    </section>
+
+    <section class="home-posts" aria-labelledby="latest-posts">
+      <div class="home-section-heading">
+        <h2 id="latest-posts">最新文章</h2>
+        <a href="/posts/">全部文章</a>
+      </div>
+      <div class="home-card-grid">
+        {{ range first (site.Params.homepage.showRecentItems | default 6) (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+          {{ partial "article-link/card.html" . }}
+        {{ end }}
+      </div>
+    </section>
+  </main>
+
+  <aside class="home-sidebar" aria-label="个人信息">
+    {{ with $author.image }}
+      {{ $avatar := resources.Get . }}
+      {{ with $avatar }}
+        <img class="home-avatar" src="{{ .RelPermalink }}" alt="{{ $author.name }}" width="120" height="120">
+      {{ end }}
+    {{ end }}
+    <h2>{{ $author.name }}</h2>
+    {{ with $author.bio }}
+      <p>{{ . }}</p>
+    {{ end }}
+    <div class="home-social">
+      {{ partialCached "author-links.html" . }}
+    </div>
+  </aside>
+</div>

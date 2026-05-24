@@ -1,0 +1,7 @@
+public/
+resources/_gen/
+.hugo_build.lock
+.vercel/
+.tools/
+.DS_Store
+Thumbs.db

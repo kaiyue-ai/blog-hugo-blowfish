@@ -1,0 +1,25 @@
+{{ define "main" }}
+  {{ $posts := where site.RegularPages "Type" "posts" }}
+  <article class="archive-page">
+    <header class="archive-header">
+      <h1>{{ .Title }}</h1>
+      <p>按时间整理所有文章。</p>
+    </header>
+
+    <section class="archive-list">
+      {{ range $posts.GroupByDate "2006" }}
+        <div class="archive-year">
+          <h2>{{ .Key }}</h2>
+          <div class="archive-items">
+            {{ range .Pages }}
+              <a class="archive-item" href="{{ .RelPermalink }}">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "01-02" }}</time>
+                <span>{{ .Title }}</span>
+              </a>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    </section>
+  </article>
+{{ end }}
