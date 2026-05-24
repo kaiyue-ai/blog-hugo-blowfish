@@ -197,6 +197,11 @@ summaryLength = 120
   weight = 10
 
 [[menus.main]]
+  name = "CSDN文章"
+  url = "/csdn/"
+  weight = 15
+
+[[menus.main]]
   name = "文章分类"
   url = "/categories/"
   weight = 20
@@ -215,6 +220,11 @@ summaryLength = 120
   name = "关于我"
   url = "/about/"
   weight = 50
+
+[[menus.footer]]
+  name = "CSDN文章"
+  url = "/csdn/"
+  weight = 5
 
 [[menus.footer]]
   name = "文章分类"
